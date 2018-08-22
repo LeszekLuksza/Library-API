@@ -3,6 +3,7 @@ package pl.coderslab.library.Model;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 
 @Entity
@@ -14,15 +15,19 @@ public class Book {
     @Column(name="id")
     private BigInteger id;
 
+    @NotNull
     @Column(name="title")
     private String title;
 
+    @NotNull
     @Column(name="author")
     private String author;
 
+    @NotNull
     @Column(name="publisher")
     private String publisher;
 
+    @NotNull
     @Column(name="isbn")
     @Length(min=13, max=13)
     private BigInteger isbn;
