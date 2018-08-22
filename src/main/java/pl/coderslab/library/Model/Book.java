@@ -29,7 +29,6 @@ public class Book {
 
     @NotNull
     @Column(name="isbn")
-    @Length(min=13, max=13)
     private BigInteger isbn;
 
     public Book() {
