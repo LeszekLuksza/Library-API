@@ -7,4 +7,5 @@ import java.math.BigInteger;
 
 public interface BookRepository extends JpaRepository<Book, BigInteger> {
     public Book findBookByIsbn(BigInteger isbn);
+    public Book findBookById(BigInteger id);
 }
