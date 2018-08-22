@@ -9,7 +9,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/book")
+@RequestMapping(value = "/Book")
 public class BookController {
 
     private final
@@ -20,13 +20,30 @@ public class BookController {
         this.bookRepository = bookRepository;
     }
 
-    @GetMapping(value={"","/","all"})
+    @GetMapping(value={"","/","All"})
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
-    @GetMapping(value="/{isbn}")
-    public Book getBookByIsbn(@PathVariable BigInteger isbn){
-        return bookRepository.findBookByIsbn(isbn);
+    @GetMapping(value="/FindByIsbn/")
+    public Book getBookByIsbn(@RequestParam() long isbn){
+        BigInteger resultIsbn;
+        System.out.println(isbn);
+        resultIsbn = BigInteger.valueOf(isbn);
+        System.out.println(resultIsbn);
+        return bookRepository.findBookByIsbn(resultIsbn);
+    }
+
+    @GetMapping(value="/FindById/")
+    public Book getBookById(@RequestParam() long id){
+        BigInteger resultId;
+            resultId = BigInteger.valueOf(id);
+        return bookRepository.findBookById(resultId);
+    }
+
+    @PostMapping("/Add")
+    public String addBook(@RequestBody Book book){
+        bookRepository.save(book);
+        return "Dodano książkę";
     }
 }
