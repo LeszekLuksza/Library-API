@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "library")
+@Table(name = "book")
 public class Book {
 
     @Id
