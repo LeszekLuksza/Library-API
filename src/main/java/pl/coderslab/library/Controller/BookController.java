@@ -44,6 +44,18 @@ public class BookController {
     @PostMapping("/Add")
     public String addBook(@RequestBody Book book){
         bookRepository.save(book);
-        return "Dodano książkę";
+        return "A book has been added";
     }
+
+    @PutMapping("/Edit/{isbn}")
+    public String editBook(@RequestBody Book bookFromRequest, @PathVariable long isbn){
+        Book bookToSave = bookRepository.findBookByIsbn(BigInteger.valueOf(isbn));
+        bookToSave.setTitle(bookFromRequest.getTitle());
+        bookToSave.setAuthor(bookFromRequest.getAuthor());
+        bookToSave.setPublisher(bookFromRequest.getPublisher());
+        bookRepository.save(bookToSave);
+        return "A book has been updated";
+    }
+
+
 }
