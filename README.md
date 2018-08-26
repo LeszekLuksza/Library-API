@@ -1,2 +1,2 @@
 # Library-API
-Library API using Spring Boot, JPA, MYSQL
+Library Api using Spring Boot, JPA, MYSQL
