@@ -57,5 +57,13 @@ public class BookController {
         return "A book has been updated";
     }
 
+    @DeleteMapping("/Delete/{id}")
+    public String deleteBook(@PathVariable Long id){
+        Book bookToDelete = bookRepository.findBookById(BigInteger.valueOf(id));
+        bookRepository.delete(bookToDelete);
+        return "Usunięto książkę";
+    }
+
+
 
 }
