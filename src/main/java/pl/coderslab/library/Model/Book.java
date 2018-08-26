@@ -72,11 +72,6 @@ public class Book {
     public void setIsbn(BigInteger isbn) {
         this.isbn = isbn;
     }
-
-    public BigInteger getId() {
-        return id;
-    }
-
 }
 
 
