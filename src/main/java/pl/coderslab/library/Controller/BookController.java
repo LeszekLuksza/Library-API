@@ -61,7 +61,7 @@ public class BookController {
     public String deleteBook(@PathVariable Long id){
         Book bookToDelete = bookRepository.findBookById(BigInteger.valueOf(id));
         bookRepository.delete(bookToDelete);
-        return "Usunięto książkę";
+        return "A book has been deleted";
     }
 
 
